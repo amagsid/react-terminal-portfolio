@@ -15,9 +15,29 @@ export class Cat extends Component {
 
   information = {
     about:
-      'I would describe myself as passionate, visual, creative communicator, content creator and a people’s person. I have q collective experience ranging from management to UX design. Once a wish, now a reality, I followed a life-long dream to become a programmer. Just like the field I chose to belong to, I’m always evolving and acquiring new sklills. I see it as an infinite process. Learning something new is what keeps me focused and motivated. Motto: Do it with passion or not at all.',
-    education:
-      'Quis ut voluptate irure est. Ex in velit nisi nostrud occaecat ipsum non quis ea. Ipsum deserunt est amet adipisicing sint nulla quis nostrud. Ullamco enim do incididunt amet elit qui sint excepteur sit irure elit reprehenderit qui excepteur. Laborum ea minim aliquip et laboris aliquip reprehenderit sunt cupidatat pariatur esse do. In sint magna laborum culpa officia cillum ex velit commodo. Laborum adipisicing laboris incididunt nulla aliquip.',
+      'I would describe myself as passionate, visual, creative communicator, content creator and a people’s person. I have q collective experience ranging from management to UX design. Once a wish, now a reality, I followed a life-long dream to become a programmer. Just like the field I chose to belong to, I’m always evolving and acquiring new sklills. I see it as an infinite process. Learning something new is what keeps me focused and motivated.\n Motto: Do it with passion or not at all.',
+    education: [
+      {
+        date: '2021',
+        name: 'HackYourFuture',
+        city: 'Amsterdam',
+        degree: 'Fullstack web programming',
+        link: 'www.hackyourfuture.net',
+      },
+      {
+        date: '2015',
+        name: 'HYF',
+        degree: 'software',
+        link: 'www.com',
+      },
+      {
+        date: '2012',
+        name: 'HYF',
+        degree: 'software',
+        link: 'www.com',
+      },
+    ],
+
     projects: [
       {
         projectName: 'p1',
@@ -64,7 +84,20 @@ export class Cat extends Component {
       if (lower === 'about') {
         return <p className='result'>{this.information.about}</p>;
       } else if (lower === 'education') {
-        return <p className='result'>{this.information.education}</p>;
+        return (
+          <p className='result'>
+            {this.information.education.map((e) => (
+              <li>
+                {e.date} -
+                <span style={{ fontWeight: 'bold', fontSize: '15px' }}>
+                  {e.name},
+                </span>
+                <span style={{ fontStyle: 'italic' }}>{e.city}</span>-{' '}
+                {e.degree}
+              </li>
+            ))}
+          </p>
+        );
       } else if (lower === 'education') {
       } else if (lower === 'projects' || lower === 'project') {
         return (
